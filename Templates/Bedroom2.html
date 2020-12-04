@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+
+<script>
+function shifter(a){
+  var active = document.getElementById(a);
+  if (active.id === "False"){
+    active.id = "True";
+    console.log(active.id);
+    return true;
+}
+  else{
+    if(active.id === "True"){
+      active.id= "False";
+      console.log(active.id);
+      return false;
+    }
+  }
+}
+</script>
+<h1> Bedroom 2 </h1>
+<table class="table">
+    <th>
+      <image src= "static\Bedroom2+closet.jpg" style = "width:75%; height:125%">
+    </th>
+    <th>
+      <table>
+        <tr>
+          <td>
+            <label for = "Bedroom2_Light"> Light</label>
+          <td>
+            <form method="POST" name = "Bedroom2_Light">
+              <input type = "radio" name = "Bedroom2_Light" id = "Bedroom2_Light" value="ON" onchange="this.form.submit()"> ON</input>
+              <input type = "radio" name = "Bedroom2_Light" id = "Bedroom2_Light" value="OFF" onchange="this.form.submit()"> OFF</input>
+              <a class= "btn btn-large" id = "{{b2l}}"></a>
+            </form>
+          </td>
+        </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="Bedroom2_Lamp1"> Lamp1</label>
+          </td>
+          <td>
+            <form method="POST" name = "Bedroom2_Lamp1">
+              <input type = "radio" name = "Bedroom2_Lamp1" id = "Bedroom2_Lamp1" value="ON" onchange="this.form.submit()"> ON</input>
+              <input type = "radio" name = "Bedroom2_Lamp1" id = "Bedroom2_Lamp1" value="OFF" onchange="this.form.submit()"> OFF</input>
+              <a class= "btn btn-large" id = "{{b2l1}}"></a>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Bedroom2_Lamp2"> Lamp2</label>
+          </td>
+          <td>
+            <form method="POST" name = "Bedroom2_Lamp2">
+              <input type = "radio" name = "Bedroom2_Lamp2" id = "Bedroom2_Lamp2" value="ON" onchange="this.form.submit()"> ON</input>
+              <input type = "radio" name = "Bedroom2_Lamp2" id = "Bedroom2_Lamp2" value="OFF" onchange="this.form.submit()"> OFF</input>
+              <a class= "btn btn-large" id = "{{b2l2}}"></a>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Bedroom2_TV">TV</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{b2tv}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Bedroom2_Window1">Window 1</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{b2w1}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Bedroom2_Window2" >Window 2</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{b2w2}}"></a>
+          </td>
+        </tr>
+       </th>
+      </table>
+    </th>
+</table>
+{%endblock%}

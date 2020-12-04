@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+
+<script>
+function shifter(a){
+  var active = document.getElementById(a);
+  if (active.id === "False"){
+    active.id = "True";
+    console.log(active.id);
+    return true;
+}
+  else{
+    if(active.id === "True"){
+      active.id= "False";
+      console.log(active.id);
+      return false;
+    }
+  }
+}
+</script>
+<h1>Garage & Utility</h1>
+<table class="table">
+    <th>
+      <image src= "static\UtilityGarage.jpg" style = "width:75%; height:55%">
+    </th>
+    <th>
+      <table>
+        <tr>
+          <td>
+            <label for = "Garage_Light"> Light</label>
+          <td>
+            <form method="POST" name = "Garage_Light">
+              <input type = "radio" name = "Garage_Light" id = "Garage_Light" value="ON" onchange="this.form.submit()"> ON</input>
+              <input type = "radio" name = "Garage_Light" id = "Garage_Light" value="OFF" onchange="this.form.submit()"> OFF</input>
+              <a class= "btn btn-large" id = "{{gl}}"></a>
+            </form>
+          </td>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Washer">Washer</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{Washer}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Dryer">Dryer</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{Dryer}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Garage_Entry">Entry</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{entry}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Garage_Door1">Garage Door1</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{gd1}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Garage_Door2">Garage Door2</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{gd2}}"></a>
+          </td>
+        </tr>
+       </th>
+      </table>
+    </th>
+</table>
+{%endblock%}

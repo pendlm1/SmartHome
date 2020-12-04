@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block content %}
+
+<script>
+function shifter(a){
+  var active = document.getElementById(a);
+  if (active.id === "False"){
+    active.id = "True";
+    console.log(active.id);
+    return true;
+}
+  else{
+    if(active.id === "True"){
+      active.id= "False";
+      console.log(active.id);
+      return false;
+    }
+  }
+}
+</script>
+<h1> Kitchen </h1>
+<table class="table">
+    <th>
+      <image src= "static\kitchen.jpg" style = "width:75%; height:125%">
+    </th>
+    <th>
+      <table style= "padding:20%">
+        <tr>
+          <td>
+            <label for="Kitchen_Light"> Light</label>
+          <td>
+            <form method="POST" name = "Kitchen_Light">
+              <input type = "radio" name = "Kitchen_Light" id = "Kitchen_Light" value="ON" onchange="this.form.submit()"> ON</input>
+              <input type = "radio" name = "Kitchen_Light" id = "Kitchen_Light" value="OFF" onchange="this.form.submit()"> OFF</input>
+              <a class= "btn btn-large" id = "{{kl}}"></a>
+            </form>
+          </td>
+        </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Kitchen_Window1">Window 1</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{kw1}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Kitchen_Window2" >Window 2</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{kw2}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Stove">Stove</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{Stove}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Oven" >Oven</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{Oven}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Microwave" >Microwave</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{Microwave}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Refigerator" >Oven</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{Refigerator}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Dishwasher" >Dishwasher</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{Dishwasher}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Backdoor" >Back Door</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{Backdoor}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Kitchen_Water">Water</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{kw}}"></a>
+          </td>
+        </tr>
+       </th>
+      </table>
+    </th>
+</table>
+{%endblock%}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{%block content%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<style>
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+#control{
+    flex:auto;
+    min-width: 33%;
+    min-height: 325px;
+    overflow: auto;
+    height:175px;
+    background:linear-gradient(180deg,#0c7cba 0%,lightblue 100%) no-repeat;
+    border-style: inherit;
+    border-right-style:inset;
+    border-color:white;
+  }
+
+</style>
+  <h1>About</h1>
+  <hr>
+  <div class="col-sm-2 sidenav" id='control' name="masterbed">
+      <iframe src= "static/Sam Hoang Resume.pdf" width = 229px></iframe>
+      <h1>Sam Hoang</h1>
+      <p>Software Programmer</p>
+      <a href="https://www.linkedin.com/in/samuel-hoang-0b4b09173/" class="fa fa-linkedin-square" style="font-size:48px"></a>
+  </div>
+  <div class="col-sm-2 sidenav" id='control' name="masterbed">
+      <iframe src= "static/Christopher Wilson Resume (11-23-2020).pdf" width = 229px></iframe>
+      <h1>Christopher Wilson</h1>
+        <p>Data Scientist</p>
+        <a href="https://www.linkedin.com/in/chris-wilson-6b5136147/" class="fa fa-linkedin-square" style="font-size:48px"></a>
+  </div>
+
+  <div class="col-sm-2 sidenav" id='control' name="masterbed">
+      <iframe src= "static/Mitchell Moore.pdf" width = 229px></iframe>
+      <h1>Mitchell Moore</h1>
+      <p> Research Computing Developer</p>
+      <a href="https://www.linkedin.com/in/mitchell-moore-037162161/" class="fa fa-linkedin-square" style="font-size:48px"></a>
+  </div>
+{%endblock%}

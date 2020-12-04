@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+#image {
+  height:375px;
+}
+</style>
+<script>
+$(function(){
+    $(document).mousemove(function(e){
+        $('#coordinates').html('x: ' + (e.pageX-420) + ' y : ' + (e.pageY-80));
+    });
+})
+</script>
+<h1>Floor Plan</h1>
+<div id="image">
+  <image src="static/Slab House.gif" alt="Workplace" usemap = "#mymap" style= "height:375px; width:600px" >
+  </image>
+
+
+<map name="mymap">
+  <area shape="rect" coords="0,0,100,80" alt="masterbath" href="masterbath">
+  <area shape="rect" coords="100,0,250,130" alt="masterbed" href="masterbed">
+  <area shape="rect" coords="0,180,260,375" alt="garage" href="garage">
+  <area shape="rect" coords="250,50,450,150" alt="kitchen" href="kitchen">
+  <area shape="rect" background = green coords="250,150,450,260" alt="livingroom" href="livingroom">
+  <area shape="rect" coords="450,0,575,115" alt="bedroom3" href="bedroom3">
+  <area shape="rect" coords="450,175,575,260" alt="bedroom2" href="bedroom2">
+  <area shape="rect" coords="450,115,590,160" alt="bath" href="bath">
+</map>
+<div id="coordinates">0</div>​
+</div>
+{%endblock%}

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+
+<script>
+function shifter(a){
+  var active = document.getElementById(a);
+  if (active.id === "False"){
+    active.id = "True";
+    console.log(active.id);
+    return true;
+}
+  else{
+    if(active.id === "True"){
+      active.id= "False";
+      console.log(active.id);
+      return false;
+    }
+  }
+}
+</script>
+<h1>Bathroom</h1>
+<table class="table">
+    <th>
+      <image src= "static\bath.jpg" style = "width:75%; height:125%">
+    </th>
+    <th>
+      <table>
+        <tr>
+          <td>
+            <label for ="Bath_Light"> Light</label>
+          </td>
+          <td>
+            <form method="POST" name = "Bath_Light">
+              <input type = "radio" name = "Bath_Light" id = "Bath_Light" value="ON" onchange="this.form.submit()"> ON</input>
+              <input type = "radio" name = "Bath_Light" id = "Bath_Light" value="OFF" onchange="this.form.submit()"> OFF</input>
+              <a class= "btn btn-large" id = "{{bl}}"></a>
+            </form>
+          </td>
+        </tr>
+      </th>
+        <tr>
+          <td>
+            <label for = "Bath_Window">Window</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{bw}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Exhaust_Fan">Exhaust Fan</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{ef}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Bath_Water">Water</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{bwater}}"></a>
+          </td>
+        </tr>
+       </th>
+      </table>
+    </th>
+</table>
+{%endblock%}

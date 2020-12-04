@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block content %}
+<script>
+function shifter(a){
+  var active = document.getElementById(a);
+  if (active.id === "False"){
+    active.id = "True";
+    console.log(active.id);
+    return true;
+}
+  else{
+    if(active.id === "True"){
+      active.id= "False";
+      console.log(active.id);
+      return false;
+    }
+  }
+}
+</script>
+<h1>Great Room</h1>
+<table class="table">
+    <th>
+      <image src= "static\LivingRoom.jpg" style = "width:75%; height:100%">
+    </th>
+    <th>
+      <table>
+        <tr>
+          <td>
+          <label for = "Living_Room_Light"> Light</label>
+          <td>
+            <form method="POST" name = "Living_Room_Light">
+              <input type = "radio" name = "Living_Room_Light" id = "Living_Room_Light" value="ON" onchange="this.form.submit()"> ON</input>
+              <input type = "radio" name = "Living_Room_Light" id = "Living_Room_Light" value="OFF" onchange="this.form.submit()"> OFF</input>
+              <a class= "btn btn-large" id = "{{ll}}"></a>
+            </form>
+          </td>
+        </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Living_Room_Lamp1"> Lamp1</label>
+          </td>
+          <td>
+            <form method="POST" name = "Living_Room_Lamp1">
+              <input type = "radio" name = "Living_Room_Lamp1" id = "Living_Room_Lamp1" value="ON" onchange="this.form.submit()"> ON</input>
+              <input type = "radio" name = "Living_Room_Lamp1" id = "Living_Room_Lamp1" value="OFF" onchange="this.form.submit()"> OFF</input>
+              <a class= "btn btn-large" id = "{{ll1}}"></a>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Living_Room_Lamp2"> Lamp2</label>
+          </td>
+          <td>
+            <form method="POST" name = "Living_Room_Lamp2">
+              <input type = "radio" name = "Living_Room_Lamp2" id = "Living_Room_Lamp2" value="ON" onchange="this.form.submit()"> ON</input>
+              <input type = "radio" name = "Living_Room_Lamp2" id = "Living_Room_Lamp2" value="OFF" onchange="this.form.submit()"> OFF</input>
+              <a class= "btn btn-large" id = "{{ll2}}"></a>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Living_Room_TV">TV</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{ltv}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Living_Room_Window1">Window 1</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{lw1}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Living_Room_Window2" >Window 2</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{lw2}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Living_Room_Window3">Window 3</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{lw3}}"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Front_Door" >Front Door</label>
+          </td>
+          <td>
+              <a class= "btn btn-large" id = "{{Frontdoor}}"></a>
+          </td>
+        </tr>
+       </th>
+      </table>
+    </th>
+</table>
+{%endblock%}

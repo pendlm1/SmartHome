@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Smart Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</head>
+<style>
+
+/*Base Style*/
+.navbar.navbar-inverse {
+background: #0c7cba;
+}
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+h1{
+  color:white;
+}
+h4{
+  color:white;
+}
+.row.content {height: 450px}
+
+.sidenav {
+  padding-top: 20px;
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+footer {
+  background-color: #0c7cba;
+  color: white;
+  padding: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content {height:auto;}
+}
+
+body {
+    height: 100vh;
+    background-color: #000;
+    font-family: 'Roboto',sans-serif;
+    background: linear-gradient(180deg,#0c7cba 0%,lightblue 100%) no-repeat;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    width: 75%;
+    margin-bottom: 0%;
+}
+.box-minmax{
+  margin-top: 30px;
+  width: 608px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  color: #FFFFFF;
+  span:first-child{
+    margin-left: 10px;
+  }
+}
+.range-slider {
+    margin-top: 30vh;
+
+}
+.rs-range {
+    margin-top: 29px;
+    width: 300px;
+    border-radius: 50%;
+    background: linear-gradient(to right,blue 0%,yellow,red 100%) no-repeat;
+    -webkit-appearance: none;
+    &:focus {
+        outline: none;
+    }
+    &::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 1px;
+        cursor: pointer;
+        box-shadow: none;
+        background: #ffffff;
+        border-radius: 0px;
+        border: 0px solid #010101;
+    }
+    &::-moz-range-track {
+        width: 100%;
+        height: 1px;
+        cursor: pointer;
+        box-shadow: none;
+        background: #ffffff;
+        border-radius: 0px;
+        border: 0px solid #010101;
+    }
+
+    &::-webkit-slider-thumb {
+        box-shadow: none;
+        border: 0px solid #ffff;
+        box-shadow: 0px 10px 10px rgba(0,0,0,0.25);
+        height: 42px;
+        width: 22px;
+        border-radius: 22px;
+        background: rgba(0,0,0,1);
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -20px;
+    }
+  &::-moz-range-thumb{
+        box-shadow: none;
+        border: 0px solid #ffffff;
+        box-shadow: 0px 10px 10px rgba(0,0,0,0.25);
+        height: 42px;
+        width: 22px;
+        border-radius: 22px;
+        background: rgba(0,0,0,1);
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -20px;
+  }
+  &::-moz-focus-outer {
+    border: 0;
+    }
+}
+.rs-range:hover{
+  opacity: 0.7;
+}
+.rs-label {
+
+    position: relative;
+    transform-origin: center center;
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: transparent;
+    border-radius: 50%;
+    line-height: 30px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 22px;
+    box-sizing: border-box;
+    border: 2px solid white;
+    margin-top: 20px;
+    margin-left: 0%;
+    left: attr(value);
+    color: white;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 36px;
+    visibility: hidden;
+  }
+  .rs-label2 {
+
+      position: relative;
+      transform-origin: center center;
+      display: block;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border-radius: 50%;
+      line-height: 10px;
+      text-align: center;
+      font-weight: bold;
+      padding-top: 10px;
+      box-sizing: border-box;
+      border: 2px solid #0c7cba;
+      margin-top: 20px;
+      margin-left: 0%;
+      left: attr(value);
+      color: #0c7cba;
+      font-style: normal;
+      font-weight: normal;
+      line-height: normal;
+      font-size: 16px;
+    }
+  .rs-label2:hover {
+      opacity: 5;
+      color:white;
+      border: 2px solid white;
+      background: linear-gradient(to right,blue 0%,red 100%) no-repeat;
+    }
+  .rs-label:hover {
+      opacity: 5;
+      color:white;
+      border: 2px solid white;
+      background: linear-gradient(to right,blue 0%,red 100%) no-repeat;
+      }
+.well:hover{
+    opacity: .7;
+    background: linear-gradient(to right,yellow 0%,lightblue) no-repeat;
+}
+.btn.btn-default{
+  background-color: transparent;
+  border-radius: 50%;
+  border-width: thick;
+  border-color: white;
+  color:white;
+  font-size:6vw;
+  font-weight: bold;
+  width:15%;
+  height:25%;
+  font-size-adjust: auto;
+  overflow: hidden;
+  word-wrap: break-word;
+
+}
+.btn.btn-default:hover{
+
+  background:linear-gradient(to right,yellow,lightblue 75%) no-repeat;
+}
+.glyphicon.glyphicon-home{
+  color:white;
+  font-size:30px;
+  padding-right: 5px;
+}
+.glyphicon.glyphicon-home:hover{
+    opacity: .7;
+  }
+.homebuttons{
+  width:50%;
+  shape-margin: 50 50;
+  background:red;
+}
+#ON{
+  background:green;
+}
+#OFF{
+  background:red;
+}
+#OPEN{
+  background:green;
+}
+#CLOSED{
+  background:red;
+}
+table,td,th{
+  padding:5px;
+  color:white;
+}
+img {
+  opacity: 0.5;
+}
+
+</style>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class= "container-fluid">
+    <div class= "navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar" style="background: #0c7cba">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="home">Home</a></li>
+        <li><a href="about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row content" style= "background: linear-gradient(180deg,#0c7cba 0%,lightblue 100%) no-repeat">
+    <div class="col-sm-2 sidenav">
+      <p><a href="masterbed">Master Bedroom</a></p>
+      <p><a href="masterbath">Master Bathroom</a></p>
+      <p><a href="bedroom2">Bed Room 2</a></p>
+      <p><a href="bedroom3">Bed Room 3</a></p>
+      <p><a href="bath">Bath 2</a></p>
+      <p><a href="kitchen">Kitchen</a></p>
+      <p><a href="livingroom">Living Room</a></p>
+      <p><a href="garage">Garage</a></p>
+      <p><a href="pic">Floor Plan</a></p>
+    </div>
+    <div class="col-sm-8 text-left text-center", style="overflow: auto">
+    {%block content%}
+
+    {%endblock%}
+    </div>
+    <div class="col-sm-2 sidenav">
+      <div class="well", id="active">
+        <a href="controls">Controls</a>
+      </div>
+      <div class="well" href="thermostat">
+        <a href="thermostat">Thermostat</a>
+      </div>
+      <div class="well">
+        <a href="usages">Usage</a>
+      </div>
+      <div class="well">
+        <a href="weather">Weather</a>
+      </div>
+      <div class="well">
+        <a href="info">Information</a>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="container-fluid text-center" style="background-color: #0c7cba" >
+  <button type="button" class="btn btn-default" aria-label="Left Align" style ="width:75px; height:75px; font-size:0px; padding:5px">
+    <a href="home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+  </button>
+</footer>
+</body>
+</html>

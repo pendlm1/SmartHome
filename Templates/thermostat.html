@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{%block content%}
+  <h1>Thermostat</h1>
+  <hr>
+  <h4>Outside Temperature: {{ outdoor_temp }}°F</h4>
+<div>
+  <form class="container" metthod =  “POST”>
+    <form class="range-slider" method = “POST” name = "Thermostat">
+        <span id="rs-bullet" class="rs-label"></span>
+        <span class="rs-label2" style= "visibility:visible; margin-left:50%;">{{currentTemp}}&deg<br><br>Current</span>
+        <input id="rs-range-line" class="rs-range" type="range" value= {{targetTemp}} min="0" max="50" onchange="this.form.submit()"></input>
+        <table>
+          <th>
+            <span class="rs-label2" style="visibility:visible">50&deg<br><br>Cool</span>
+          </th>
+          <th>
+            <span class="rs-label2" style= "visibility:visible; margin-left:100%;">100&deg<br><br>Heat</span>
+          </th>
+        </table>
+        </form>
+    </form>
+  </div>
+  <script>
+  var rangeSlider = document.getElementById("rs-range-line");
+  var rangeBullet = document.getElementById("rs-bullet");
+
+  rangeSlider.addEventListener("input", showSliderValue, false);
+
+  function showSliderValue() {
+    rangeBullet.innerHTML = parseInt(rangeSlider.value) + 50 +"°";
+    var bulletPosition = (rangeSlider.value /rangeSlider.max);
+    rangeBullet.style.left = (bulletPosition*100) + "%";
+    rangeBullet.style.visibility = "visible";
+  }
+  </script>
+{%endblock%}

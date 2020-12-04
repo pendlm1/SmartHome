@@ -1,0 +1,682 @@
+{% extends "base.html" %}
+
+{%block content%}
+<style>
+#control{
+    flex:auto;
+    min-width: 25%;
+    overflow: auto;
+    height:175px;
+    background:linear-gradient(180deg,#0c7cba 0%,lightblue 100%) no-repeat;
+    border-style: inherit;
+    border-right-style:inset;
+    border-color:white;
+  }
+#space{
+  width:1%;
+  background:white;
+  height:10px;
+}
+
+</style>
+
+  <h1>Controls</h1>
+  <div class="col-sm-2 sidenav" id='control' name="masterbed">
+    <h4>Master Bed</h4>
+    <table>
+      <tr>
+        <td>
+          <label for = "Master_Light"> Light</label>
+        <td>
+            <form method="POST" name = "Master_Light">
+              <input type = "radio" name = "MasterLight" id = "MasterLight" value="ON" onchange="this.form.submit()"> ON</input>
+              <input type = "radio" name = "MasterLight" id = "MasterLight" value="OFF" onchange="this.form.submit()"> OFF</input>
+              <a class= "btn btn-large" id = "{{ml}}"></a>
+            </form>
+        </td>
+      </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="Master_Lamp1"> Lamp1</label>
+        </td>
+        <td>
+          <form method="POST" name = "Master_Lamp1">
+            <input type = "radio" name = "Master_Lamp1" id = "Master_Lamp1" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Master_Lamp1" id = "Master_Lamp1" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{ml1}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Master_Lamp2"> Lamp2</label>
+        </td>
+        <td>
+          <form method="POST" name = "Master_Lamp1">
+            <input type = "radio" name = "Master_Lamp2" id = "Master_Lamp2" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Master_Lamp2" id = "Master_Lamp2" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{ml2}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Master_TV">TV</label>
+        </td>
+        <td>
+          <form method="POST" name = "Master_TV">
+            <input type = "radio" name = "Master_TV" id = "Master_TV" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Master_TV" id = "Master_TV" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{mtv}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Master_Window1">Window1</label>
+        </td>
+        <td>
+          <form method="POST" name = "Master_Window1">
+            <input type = "radio" name = "Master_Window1" id = "Master_Window1" value="OPEN" onchange="this.form.submit()"> Open</input>
+            <input type = "radio" name = "Master_Window1" id = "Master_Window1" value="CLOSED" onchange="this.form.submit()"> Close</input>
+            <a class= "btn btn-large" id = "{{mw1}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Master_Window2">Window2</label>
+        </td>
+        <td>
+          <form method="POST" name = "Master_Window2">
+            <input type = "radio" name = "Master_Window2" id = "Master_Window2" value="OPEN" onchange="this.form.submit()"> Open</input>
+            <input type = "radio" name = "Master_Window2" id = "Master_Window2" value="CLOSED" onchange="this.form.submit()"> Close</input>
+            <a class= "btn btn-large" id = "{{mw2}}"></a>
+          </form>
+        </td>
+      </tr>
+     </th>
+    </table>
+  </div>
+
+  <div class="col-sm-2 sidenav" id='control' name="masterbath">
+    <h4>Master Bath</h4>
+    <table>
+      <tr>
+        <td>
+          <label for ="Master_Bath_Light"> Light</label>
+        </td>
+        <td>
+          <form method="POST" name = "Master_Bath_Light">
+            <input type = "radio" name = "Master_Bath_Light" id = "Master_Bath_Light" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Master_Bath_Light" id = "Master_Bath_Light" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{mbl}}"></a>
+          </form>
+        </td>
+      </tr>
+    </th>
+      <tr>
+        <td>
+          <label for = "Master_Bath_Water">Water</label>
+        </td>
+        <td>
+          <form method="POST" name = "Master_Bath_Water">
+            <input type = "radio" name = "Master_Bath_Water" id = "Master_Bath_Water" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Master_Bath_Water" id = "Master_Bath_Water" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{mbwater}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Master_Exhaust_Fan">Exhaust Fan</label>
+        </td>
+        <td>
+          <form method="POST" name = "Master_Exhaust_Fan">
+            <input type = "radio" name = "Master_Exhaust_Fan" id = "Master_Exhaust_Fan" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Master_Exhaust_Fan" id = "Master_Exhaust_Fan" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{mef}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Master_Bath_Window">Window</label>
+        </td>
+        <td>
+          <form method="POST" name = "Master_Bath_Window">
+            <input type = "radio" name = "Master_Bath_Window" id = "Master_Bath_Window" value="OPEN" onchange="this.form.submit()"> Open</input>
+            <input type = "radio" name = "Master_Bath_Window" id = "Master_Bath_Window" value="CLOSED" onchange="this.form.submit()"> Close</input>
+            <a class= "btn btn-large" id = "{{mbw}}"></a>
+          </form>
+        </td>
+      </tr>
+     </th>
+    </table>
+  </div>
+
+  <div class="col-sm-2 sidenav" id='control' name="bedroom2">
+      <table style = "padding:10%">
+          <h4>Bedroom 2<h4>
+            <table>
+              <tr>
+                <td>
+                  <label for = "Bedroom2_Light"> Light</label>
+                <td>
+                  <form method="POST" name = "Bedroom2_Light">
+                    <input type = "radio" name = "Bedroom2_Light" id = "Bedroom2_Light" value="ON" onchange="this.form.submit()"> ON</input>
+                    <input type = "radio" name = "Bedroom2_Light" id = "Bedroom2_Light" value="OFF" onchange="this.form.submit()"> OFF</input>
+                    <a class= "btn btn-large" id = "{{b2l}}"></a>
+                  </form>
+                </td>
+              </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="Bedroom2_Lamp1"> Lamp1</label>
+                </td>
+                <td>
+                  <form method="POST" name = "Bedroom2_Lamp1">
+                    <input type = "radio" name = "Bedroom2_Lamp1" id = "Bedroom2_Lamp1" value="ON" onchange="this.form.submit()"> ON</input>
+                    <input type = "radio" name = "Bedroom2_Lamp1" id = "Bedroom2_Lamp1" value="OFF" onchange="this.form.submit()"> OFF</input>
+                    <a class= "btn btn-large" id = "{{b2l1}}"></a>
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for = "Bedroom2_Lamp2"> Lamp2</label>
+                </td>
+                <td>
+                  <form method="POST" name = "Bedroom2_Lamp2">
+                    <input type = "radio" name = "Bedroom2_Lamp2" id = "Bedroom2_Lamp2" value="ON" onchange="this.form.submit()"> ON</input>
+                    <input type = "radio" name = "Bedroom2_Lamp2" id = "Bedroom2_Lamp2" value="OFF" onchange="this.form.submit()"> OFF</input>
+                    <a class= "btn btn-large" id = "{{b2l2}}"></a>
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for = "Bedroom2_TV">TV</label>
+                </td>
+                <td>
+                  <form method="POST" name = "Bedroom2_TV">
+                    <input type = "radio" name = "Bedroom2_TV" id = "Bedroom2_TV" value="ON" onchange="this.form.submit()"> ON</input>
+                    <input type = "radio" name = "Bedroom2_TV" id = "Bedroom2_TV" value="OFF" onchange="this.form.submit()"> OFF</input>
+                    <a class= "btn btn-large" id = "{{b2tv}}"></a>
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for = "Bedroom2_Window1">Window 1</label>
+                </td>
+                <td>
+                  <form method="POST" name = "Bedroom2_Window1">
+                    <input type = "radio" name = "Bedroom2_Window1" id = "Bedroom2_Window1" value="OPEN" onchange="this.form.submit()"> Open</input>
+                    <input type = "radio" name = "Bedroom2_Window1" id = "Bedroom2_Window1" value="CLOSED" onchange="this.form.submit()"> Close</input>
+                    <a class= "btn btn-large" id = "{{b2w1}}"></a>
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for = "Bedroom2_Window2" >Window 2</label>
+                </td>
+                <td>
+                  <form method="POST" name = "Bedroom2_Window2">
+                    <input type = "radio" name = "Bedroom2_Window2" id = "Bedroom2_Window2" value="OPEN" onchange="this.form.submit()"> Open</input>
+                    <input type = "radio" name = "Bedroom2_Window2" id = "Bedroom2_Window2" value="CLOSED" onchange="this.form.submit()"> Close</input>
+                    <a class= "btn btn-large" id = "{{b2w2}}"></a>
+                  </form>
+                </td>
+              </tr>
+             </th>
+            </table>
+    </div>
+
+  <div class="col-sm-2 sidenav" id='control' name="bedroom3">
+        <h4>Bedroom 3</h4>
+        <table>
+          <tr>
+            <td>
+              <label for = "Bedroom3_Light"> Light</label>
+            <td>
+              <form method="POST" name = "Bedroom3_Light">
+                <input type = "radio" name = "Bedroom3_Light" id = "Bedroom3_Light" value="ON" onchange="this.form.submit()"> ON</input>
+                <input type = "radio" name = "Bedroom3_Light" id = "Bedroom3_Light" value="OFF" onchange="this.form.submit()"> OFF</input>
+                <a class= "btn btn-large" id = "{{b3l}}"></a>
+              </form>
+            </td>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="Bedroom3_Lamp1"> Lamp1</label>
+            </td>
+            <td>
+              <form method="POST" name = "Bedroom3_Lamp1">
+                <input type = "radio" name = "Bedroom3_Lamp1" id = "Bedroom3_Lamp1" value="ON" onchange="this.form.submit()"> ON</input>
+                <input type = "radio" name = "Bedroom3_Lamp1" id = "Bedroom3_Lamp1" value="OFF" onchange="this.form.submit()"> OFF</input>
+                <a class= "btn btn-large" id = "{{b3l1}}"></a>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for = "Bedroom3_Lamp2"> Lamp2</label>
+            </td>
+            <td>
+              <form method="POST" name = "Bedroom3_Lamp2">
+                <input type = "radio" name = "Bedroom3_Lamp2" id = "Bedroom3_Lamp2" value="ON" onchange="this.form.submit()"> ON</input>
+                <input type = "radio" name = "Bedroom3_Lamp2" id = "Bedroom3_Lamp2" value="OFF" onchange="this.form.submit()"> OFF</input>
+                <a class= "btn btn-large" id = "{{b3l2}}"></a>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for = "Bedroom3_TV">TV</label>
+            </td>
+            <td>
+              <form method="POST" name = "Bedroom3_TV">
+                <input type = "radio" name = "Bedroom3_TV" id = "Bedroom3_TV" value="ON" onchange="this.form.submit()"> ON</input>
+                <input type = "radio" name = "Bedroom3_TV" id = "Bedroom3_TV" value="OFF" onchange="this.form.submit()"> OFF</input>
+                <a class= "btn btn-large" id = "{{b3tv}}"></a>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for = "Bedroom3_Window1">Window 1</label>
+            </td>
+            <td>
+              <form method="POST" name = "Bedroom3_Window1">
+                <input type = "radio" name = "Bedroom3_Window1" id = "Bedroom3_Window1" value="OPEN" onchange="this.form.submit()"> Open</input>
+                <input type = "radio" name = "Bedroom3_Window1" id = "Bedroom3_Window1" value="CLOSED" onchange="this.form.submit()"> Close</input>
+                <a class= "btn btn-large" id = "{{b3w1}}"></a>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for = "Bedroom3_Window2" >Window 2</label>
+            </td>
+            <td>
+              <form method="POST" name = "Bedroom3_Window2">
+                <input type = "radio" name = "Bedroom3_Window2" id = "Bedroom3_Window2" value="OPEN" onchange="this.form.submit()"> Open</input>
+                <input type = "radio" name = "Bedroom3_Window2" id = "Bedroom3_Window2" value="CLOSED" onchange="this.form.submit()"> Close</input>
+                <a class= "btn btn-large" id = "{{b3w2}}"></a>
+              </form>
+            </td>
+          </tr>
+         </th>
+        </table>
+    </div>
+
+  <div class="col-sm-2 sidenav" id='control' name="bath">
+      <h4>Bath</h4>
+      <table>
+        <tr>
+          <td>
+            <label for ="Bath_Light"> Light</label>
+          </td>
+          <td>
+            <form method="POST" name = "Bath_Light">
+              <input type = "radio" name = "Bath_Light" id = "Bath_Light" value="ON" onchange="this.form.submit()"> ON</input>
+              <input type = "radio" name = "Bath_Light" id = "Bath_Light" value="OFF" onchange="this.form.submit()"> OFF</input>
+              <a class= "btn btn-large" id = "{{bl}}"></a>
+            </form>
+          </td>
+        </tr>
+      </th>
+        <tr>
+          <td>
+            <label for = "Bath_Window">Window</label>
+          </td>
+          <td>
+            <form method="POST" name = "Bath_Window">
+              <input type = "radio" name = "Bath_Window" id = "Bath_Window" value="OPEN" onchange="this.form.submit()"> Open</input>
+              <input type = "radio" name = "Bath_Window" id = "Bath_Window" value="CLOSED" onchange="this.form.submit()"> Close</input>
+              <a class= "btn btn-large" id = "{{bw}}"></a>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Exhaust_Fan">Exhaust Fan</label>
+          </td>
+          <td>
+            <form method="POST" name = "Exhaust_Fan">
+              <input type = "radio" name = "Exhaust_Fan" id = "Exhaust_Fan" value="ON" onchange="this.form.submit()"> ON</input>
+              <input type = "radio" name = "Exhaust_Fan" id = "Exhaust_Fan" value="OFF" onchange="this.form.submit()"> OFF</input>
+              <a class= "btn btn-large" id = "{{ef}}"></a>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for = "Bath_Water">Water</label>
+          </td>
+          <td>
+            <form method="POST" name = "Bath_Water">
+              <input type = "radio" name = "Bath_Water" id = "Bath_Water" value="ON" onchange="this.form.submit()"> ON</input>
+              <input type = "radio" name = "Bath_Water" id = "Bath_Water" value="OFF" onchange="this.form.submit()"> OFF</input>
+              <a class= "btn btn-large" id = "{{bwater}}"></a>
+            </form>
+          </td>
+        </tr>
+       </th>
+      </table>
+  </div>
+
+  <div class="col-sm-2 sidenav"id='control'name="kitchen">
+    <h4>Kitchen</h4>
+    <table style= "padding:20%">
+      <tr>
+        <td>
+          <label for="Kitchen_Light"> Light</label>
+        <td>
+          <form method="POST" name = "Kitchen_Light">
+            <input type = "radio" name = "Kitchen_Light" id = "Kitchen_Light" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Kitchen_Light" id = "Kitchen_Light" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{kl}}"></a>
+          </form>
+        </td>
+      </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Kitchen_Window1">Window 1</label>
+        </td>
+        <td>
+          <form method="POST" name = "Kitchen_Window1">
+            <input type = "radio" name = "Kitchen_Window1" id = "Kitchen_Window1" value="OPEN" onchange="this.form.submit()"> Open</input>
+            <input type = "radio" name = "Kitchen_Window1" id = "Kitchen_Window1" value="CLOSED" onchange="this.form.submit()"> Close</input>
+            <a class= "btn btn-large" id = "{{kw1}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Kitchen_Window2" >Window 2</label>
+        </td>
+        <td>
+          <form method="POST" name = "Kitchen_Window2">
+            <input type = "radio" name = "Kitchen_Window2" id = "Kitchen_Window2" value="OPEN" onchange="this.form.submit()"> Open</input>
+            <input type = "radio" name = "Kitchen_Window2" id = "Kitchen_Window2" value="CLOSED" onchange="this.form.submit()"> Close</input>
+            <a class= "btn btn-large" id = "{{kw2}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Stove">Stove</label>
+        </td>
+        <td>
+          <form method="POST" name = "Stove">
+            <input type = "radio" name = "Stove" id = "Stove" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Stove" id = "Stove" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{Stove}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Oven" >Oven</label>
+        </td>
+        <td>
+          <form method="POST" name = "Oven">
+            <input type = "radio" name = "Oven" id = "Oven" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Oven" id = "Oven" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{Oven}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Microwave" >Microwave</label>
+        </td>
+        <td>
+          <form method="POST" name = "Microwave">
+            <input type = "radio" name = "Microwave" id = "Microwave" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Microwave" id = "Microwave" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{Microwave}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Refigerator" >Oven</label>
+        </td>
+        <td>
+          <form method="POST" name = "Refigerator">
+            <input type = "radio" name = "Refigerator" id = "Refigerator" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Refigerator" id = "Refigerator" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{Refigerator}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Dishwasher" >Dishwasher</label>
+        </td>
+        <td>
+          <form method="POST" name = "Dishwasher">
+            <input type = "radio" name = "Dishwasher" id = "Dishwasher" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Dishwasher" id = "Dishwasher" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{Dishwasher}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Backdoor" >Back Door</label>
+        </td>
+        <td>
+          <form method="POST" name = "Backdoor">
+            <input type = "radio" name = "Backdoor" id = "Backdoor" value="OPEN" onchange="this.form.submit()"> Open</input>
+            <input type = "radio" name = "Backdoor" id = "Backdoor" value="CLOSED" onchange="this.form.submit()"> Close</input>
+            <a class= "btn btn-large" id = "{{Backdoor}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Kitchen_Water">Water</label>
+        </td>
+        <td>
+          <form method="POST" name = "Kitchen_Water">
+            <input type = "radio" name = "Kitchen_Water" id = "Kitchen_Water" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Kitchen_Water" id = "Kitchen_Water" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{kw}}"></a>
+          </form>
+        </td>
+      </tr>
+     </th>
+    </table>
+  </div>
+
+  <div class="col-sm-2 sidenav"id='control' name="livingroom">
+    <h4>Living Room</h4>
+    <table>
+      <tr>
+        <td>
+        <label for = "Living_Room_Light"> Light</label>
+        <td>
+          <form method="POST" name = "Living_Room_Light">
+            <input type = "radio" name = "Living_Room_Light" id = "Living_Room_Light" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Living_Room_Light" id = "Living_Room_Light" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{ll}}"></a>
+          </form>
+        </td>
+      </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Living_Room_Lamp1"> Lamp1</label>
+        </td>
+        <td>
+          <form method="POST" name = "Living_Room_Lamp1">
+            <input type = "radio" name = "Living_Room_Lamp1" id = "Living_Room_Lamp1" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Living_Room_Lamp1" id = "Living_Room_Lamp1" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{ll1}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Living_Room_Lamp2"> Lamp2</label>
+        </td>
+        <td>
+          <form method="POST" name = "Living_Room_Lamp2">
+            <input type = "radio" name = "Living_Room_Lamp2" id = "Living_Room_Lamp2" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Living_Room_Lamp2" id = "Living_Room_Lamp2" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{ll2}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Living_Room_TV">TV</label>
+        </td>
+        <td>
+          <form method="POST" name = "Living_Room_TV">
+            <input type = "radio" name = "Living_Room_TV" id = "Living_Room_TV" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Living_Room_TV" id = "Living_Room_TV" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{ltv}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Living_Room_Window1">Window 1</label>
+        </td>
+        <td>
+          <form method="POST" name = "Living_Room_Window1">
+            <input type = "radio" name = "Living_Room_Window1" id = "Living_Room_Window1" value="OPEN" onchange="this.form.submit()"> Open</input>
+            <input type = "radio" name = "Living_Room_Window1" id = "Living_Room_Window1" value="CLOSED" onchange="this.form.submit()"> Close</input>
+            <a class= "btn btn-large" id = "{{lw1}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Living_Room_Window2" >Window 2</label>
+        </td>
+        <td>
+          <form method="POST" name = "Living_Room_Window2">
+            <input type = "radio" name = "Living_Room_Window2" id = "Living_Room_Window2" value="OPEN" onchange="this.form.submit()"> Open</input>
+            <input type = "radio" name = "Living_Room_Window2" id = "Living_Room_Window2" value="CLOSED" onchange="this.form.submit()"> Close</input>
+            <a class= "btn btn-large" id = "{{lw2}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Living_Room_Window3">Window 3</label>
+        </td>
+        <td>
+          <form method="POST" name = "Living_Room_Window3">
+            <input type = "radio" name = "Living_Room_Window3" id = "Living_Room_Window3" value="OPEN" onchange="this.form.submit()"> Open</input>
+            <input type = "radio" name = "Living_Room_Window3" id = "Living_Room_Window3" value="CLOSED" onchange="this.form.submit()"> Close</input>
+            <a class= "btn btn-large" id = "{{lw3}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Front_Door" >Front Door</label>
+        </td>
+        <td>
+          <form method="POST" name = "Front_Door">
+            <input type = "radio" name = "Front_Door" id = "Front_Door" value="OPEN" onchange="this.form.submit()"> Open</input>
+            <input type = "radio" name = "Front_Door" id = "Front_Door" value="CLOSED" onchange="this.form.submit()"> Close</input>
+            <a class= "btn btn-large" id = "{{Frontdoor}}"></a>
+          </form>
+        </td>
+      </tr>
+     </th>
+    </table>
+  </div>
+
+  <div class="col-sm-2 sidenav" id='control' name="Garage">
+    <h4>Garage</h4>
+    <table>
+      <tr>
+        <td>
+          <label for = "Garage_Light"> Light</label>
+        <td>
+          <form method="POST" name = "Garage_Light">
+            <input type = "radio" name = "Garage_Light" id = "Garage_Light" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Garage_Light" id = "Garage_Light" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{gl}}"></a>
+          </form>
+        </td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Washer">Washer</label>
+        </td>
+        <td>
+          <form method="POST" name = "Washer">
+            <input type = "radio" name = "Washer" id = "Washer" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Washer" id = "Washer" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{Washer}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Dryer">Dryer</label>
+        </td>
+        <td>
+          <form method="POST" name = "Dryer">
+            <input type = "radio" name = "Dryer" id = "Dryer" value="ON" onchange="this.form.submit()"> ON</input>
+            <input type = "radio" name = "Dryer" id = "Dryer" value="OFF" onchange="this.form.submit()"> OFF</input>
+            <a class= "btn btn-large" id = "{{Dryer}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Garage_Entry">Entry</label>
+        </td>
+        <td>
+          <form method="POST" name = "Entry_Door">
+            <input type = "radio" name = "Entry_Door" id = "Entry_Door" value="OPEN" onchange="this.form.submit()"> Open</input>
+            <input type = "radio" name = "Entry_Door" id = "Entry_Door" value="CLOSED" onchange="this.form.submit()"> Close</input>
+            <a class= "btn btn-large" id = "{{entry}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Garage_Door1">Garage Door1</label>
+        </td>
+        <td>
+          <form method="POST" name = "Garage_Door1">
+            <input type = "radio" name = "Garage_Door1" id = "Garage_Door1" value="OPEN" onchange="this.form.submit()"> Open</input>
+            <input type = "radio" name = "Garage_Door1" id = "Garage_Door1" value="CLOSED" onchange="this.form.submit()"> Close</input>
+            <a class= "btn btn-large" id = "{{gd1}}"></a>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for = "Garage_Door2">Garage Door2</label>
+        </td>
+        <td>
+          <form method="POST" name = "Garage_Door2">
+            <input type = "radio" name = "Garage_Door2" id = "Garage_Door2" value="OPEN" onchange="this.form.submit()"> Open</input>
+            <input type = "radio" name = "Garage_Door2" id = "Garage_Door2" value="CLOSED" onchange="this.form.submit()"> Close</input>
+            <a class= "btn btn-large" id = "{{gd2}}"></a>
+          </form>
+        </td>
+      </tr>
+     </th>
+    </table>
+  </div>
+{%endblock%}
